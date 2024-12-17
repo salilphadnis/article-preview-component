@@ -12,6 +12,13 @@
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
 
+    :root {
+      --Very-Dark-Grayish-Blue: hsl(217, 19%, 35%);
+      --Desaturated-Dark-Blue: hsl(214, 17%, 51%);
+      --Grayish-Blue: hsl(212, 23%, 69%);
+      --Light-Grayish-Blue: hsl(210, 46%, 95%);
+  }
+
     * {
         padding: 0;
         margin: 0;
@@ -21,7 +28,7 @@
     body {
       font-family: "Manrope", sans-serif;
       font-size: 13px;
-      background-color: rgb(237,242,248);
+      background-color: var(--Light-Grayish-Blue);
       display:flex;
       justify-content: center;
       align-items: center;
@@ -29,39 +36,29 @@
     }
 
     .container {
+      display: flex;
+      flex-direction: column;
       max-width: 20rem;
-      margin-left: auto;
-      margin-right: auto;
+      background-color: white;
     }
 
-    img {
+    .container > img {
       width: 100%;
     }
 
-    .footer > img {
-      width: 15%;
-      border-radius: 50%;
-    }
-
-
-    .footer .share {
-      /*width: 10%*/
-    }
 
     .description {
-      background-color: white;
-      padding-left: 2rem;
-      padding-right: 2rem;
-      padding-top: 2rem;
-      padding-bottom: 1rem;
+      padding: 2rem 2rem 1rem 2rem;
     }
 
+    /*First paragraph*/
     .intro {
       color: hsl(217, 19%, 35%);
       font-size: 1rem;
       font-weight: 700;
     }
 
+    /*Second paragraph*/
     .details {
       color: hsl(212, 23%, 69%);
       font-weight: 500;
@@ -70,17 +67,22 @@
 
     .footer {
       display: grid;
-      grid-template-columns: 1fr 3fr 2fr;
+      grid-template-columns: 1fr 4fr 1fr;
       margin-top: 2rem;
     }
 
+    /*Name of the author and the date*/
     .author {
       padding-left: 1rem;
+      width: 5rem;
     }
 
     .avatar > img {
+      width: 3rem;
       border-radius: 50%;
     }
+
+    /*share image container*/
     .share {
       display: flex;
       align-items: center;
@@ -92,6 +94,33 @@
       background-color: rgb(237,242,248);
       padding: 0.8rem;
       border-radius: 50%;
+    }
+
+    /*Give the author's name a heavier weight*/
+    .footer span {
+      font-weight: 600;
+    }
+
+    @media (min-width: 768px) {
+
+      .container {
+        flex-direction: row;
+        max-width: 45rem;
+      }
+
+    .container > img {
+      width: 40%;
+    }
+
+    /*First paragraph*/
+    .intro {
+      color: hsl(217, 19%, 35%);
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+
+
     }
 
   </style>
@@ -118,8 +147,8 @@
           <img src="images/avatar-michelle.jpg">
         </div>
         <div class="author">
-          Michelle Appleton
-          28 Jun 2020 
+          <p><span>Michelle Appleton</span>
+          28 Jun 2020</p>
         </div>
         <div class="share">
           <img src="images/icon-share.svg">

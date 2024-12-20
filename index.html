@@ -40,10 +40,13 @@
       flex-direction: column;
       max-width: 20rem;
       background-color: white;
+      border-radius: 0.5rem;
     }
 
     .container > img {
       width: 100%;
+      border-radius: 0.5rem 0.5rem 0 0;
+      object-fit: fill;
     }
 
 
@@ -53,53 +56,90 @@
 
     /*First paragraph*/
     .intro {
-      color: hsl(217, 19%, 35%);
+      color: var(--Very-Dark-Grayish-Blue);
       font-size: 1rem;
       font-weight: 700;
     }
 
     /*Second paragraph*/
     .details {
-      color: hsl(212, 23%, 69%);
+      color: var(--Grayish-Blue);
       font-weight: 500;
       padding-top: 1rem;
     }
 
-    .footer {
-      display: grid;
-      grid-template-columns: 1fr 4fr 1fr;
+    .avatar {
+      position: relative;
+    }
+
+    .avatar-inactive {
+      display: flex;
+      justify-content: space-between;
       margin-top: 2rem;
+      align-items: center;
+      width: 100%;      
     }
 
     /*Name of the author and the date*/
-    .author {
-      padding-left: 1rem;
-      width: 5rem;
+    .avatar-inactive .author {
+      flex-basis: 10rem;
     }
 
-    .avatar > img {
+    .avatar .author .name {
+      font-weight: 600;
+    }
+
+    .avatar-img > img {
       width: 3rem;
       border-radius: 50%;
     }
 
-    /*share image container*/
-    .share {
-      display: flex;
-      align-items: center;
-      justify-content: right;
+    .avatar-inactive .author {
+      flex-basis: 8rem;
     }
 
-    .share > img {
-      width: 50%;
-      background-color: rgb(237,242,248);
-      padding: 0.8rem;
+    /*share image container*/
+    
+    .share {
+      padding: 0.5rem;
+      background-color: var(--Light-Grayish-Blue);
       border-radius: 50%;
     }
 
-    /*Give the author's name a heavier weight*/
-    .footer span {
-      font-weight: 600;
+    .avatar-active {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: absolute;
+      background-color: var(--Very-Dark-Grayish-Blue);
+      width: calc(100% + 4rem);
+      padding-top: 1rem;
+      top: 0;
+      padding-top: 0.5rem;
+      padding-bottom: 2rem;
+      padding-right: 2rem;
+      padding-left: 2rem;
+      left: -2rem;
+      right: -2rem;
+      opacity: 80%;
+      border-radius: 0 0 0.5rem 0.5rem;
+      color: white;
+      /*height: 4.2rem;*/
     }
+
+    .share-links {
+      display: flex;
+      width: 6rem;
+      justify-content: space-between;
+    }
+
+    .share-text > p {
+      letter-spacing: 0.4rem;
+    }
+
+
+
+    /*Give the author's name a heavier weight*/
 
     @media (min-width: 768px) {
 
@@ -114,7 +154,6 @@
 
     /*First paragraph*/
     .intro {
-      color: hsl(217, 19%, 35%);
       font-size: 1.3rem;
       font-weight: 700;
     }
@@ -128,6 +167,7 @@
 <body>
 
   <div class="container">
+
     <img src="images/drawers.jpg">
 
     <div class="description">
@@ -143,18 +183,49 @@
       </p>
 
       <div class="footer">
-        <div class="avatar">
-          <img src="images/avatar-michelle.jpg">
-        </div>
-        <div class="author">
-          <p><span>Michelle Appleton</span>
-          28 Jun 2020</p>
-        </div>
-        <div class="share">
-          <img src="images/icon-share.svg">
-        </div>
-      </div>
 
-    </div>
+        <div class="avatar">
+
+          <div class="avatar-inactive">
+
+            <div class ="avatar-img">
+              <img src="images/avatar-michelle.jpg">        
+            </div>
+
+            <div class="author">
+              <p class="name">Michelle Appleton</p>
+              <p class="date">28 Jun 2020</p>
+            </div>
+
+            <div class="share">
+              <img src="images/icon-share.svg">
+            </div>
+          </div>
+
+          <div class="avatar-active">
+              <div class="share-text">
+                <p>SHARE</p>
+              </div>
+
+              <div class="share-links">
+                <img src="images/icon-facebook.svg">
+                <img src="images/icon-twitter.svg">
+                <img src="images/icon-pinterest.svg">
+              </div>
+
+              <div class="share">
+                <img src="images/icon-share.svg">
+              </div>
+
+          </div>
+
+        </div>
+
+      </div> <!--footer-->
+
+    </div>  <!--description-->
+
+  </div>
+
 </body>
 </html>
